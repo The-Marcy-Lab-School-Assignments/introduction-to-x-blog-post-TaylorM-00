@@ -4,9 +4,11 @@ By Taylor Marshall
 
 ## Introduction
 
-- Hello and Welcome to the Introduction of React Native. This article will be going over the fundamentals of react native and will share with readers the basic need to create a skeleton for any type of app development.
+- Hello and Welcome to an introduction of React Native. This article will be going over the fundamentals of react native and I will sharing the basics of React Native needed to create a skeleton that can be used for the development of any app.
 
-( Compare & Contrast ) - If you are looking into React Native, then I'm and going to strongly assume that you have heard of React.JS. While these have similar syntax and user Interface softwares. One should not be used or mistaken for the other. The main difference between the two is React.JS is used to build application that utilize a web browser, while React Native is used to build applications that run on both IOS and Android Devices.
+If you are looking to learn React Native, then it is highly encouraged that you learn React in advanced since the two have similar syntax and user interface softwares. React and React Native should not be used or mistaken for the one another. The main difference between the two is React is used to build applications that utilize a web browser, while React Native is used to build mobile applications that run on both IOS and Android Devices.
+
+<!-- what is it build on, are you a react native app, when and how to use, if you know react this is good to know,  -->
 
 ## Environment Setup / Expo Setup
 
@@ -25,9 +27,7 @@ By Taylor Marshall
 
 ## Core Components
 
-image , , button , , combining
-
-- In this section we will be going over the core components in React Native. These components are the most basic functions needed for a proper mobile app.
+- In this section we will be going over the syntax of some of the core components in React Native. These components are the most basic functions needed for a proper mobile app. React Native has built in components that you can quickly set up in an application.
 
 ## View
 
@@ -79,12 +79,49 @@ image , , button , , combining
 
   - The <ScrollView> component helps users display content thats bigger than the screen, and allows users scroll either vertically or horizontally. A limitation of this is that if you plan to have extra long list of items display on the screen, this will lead to slow rendering and an increase of memory usage. To help with this users are encouraged to use <FlatList>. <FlatList> renders items "lazily", which means items will only render when they are about to appear, and are removed when they are scrolled off screen. This helps to save memory and cuts down the processing time. It is also important to note that the items in <ScrollView> will not render unless given a bounded height. What this means is that users have to define the maximum height that its allowed to occupy.
 
+  ```js
+  import React from "react";
+  import { View, ScrollView, Text, StyleSheet } from "react-native";
+   export default function App() {
+    return (
+      <View style={{ flex: 1}}>
+      <ScrollView contentContainerStyle={styles.content}>
+        {Array.from({ length: 30}).map((_, i) => (
+          <Text key={i} style={styles.item}> Item {i+1}</Text>
+        ))}
+      </ScrollView>
+      </View>
+
+    )
+  }
+
+  const styles = StyleSheet.create({
+    content: {
+      padding: 20,
+    }
+    item: {
+      marginVertical: 10,
+      fontSize: 18,
+    }
+  })
+  ```
+
 ## Button
 
-## Image
+- The <Button> component is a built-in function in React Native, this method is also the simplest way to add a clickable button for any app. Users can add advance styling and interactions by using features like <TouchableOpacity> and <Pressable>.
+  <TouchableOpacity> allows users to make any element on a page pressable.
+  <Pressable> allows users to detect touch interactions and customize the feedback for presses.
 
-## Styling Components
+```js
+import React from 'react'
+import {View, Button} from 'react-native';
 
-## Navigation
+export default function App() {
+  return(
+<View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+<Button title="Press Me" onPress={() => alert('Button pressed!')}>
+</View>
+  )
+}
 
-## Conclusion & Tips to Learn
+```

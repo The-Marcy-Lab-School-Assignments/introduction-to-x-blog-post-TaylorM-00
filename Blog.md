@@ -8,8 +8,6 @@ By Taylor Marshall
 
 If you are looking to learn React Native, it is highly encouraged that you learn React in advance, as the two have similar syntax and user interface frameworks. React and React Native should not be used or mistaken for one another. The main difference between the two is that React is used to build applications that utilize a web browser, while React Native is used to build mobile applications that run on both IOS and Android Devices.
 
-<!-- what is it built on, are you a react native app, when and how to use, if you know React this is good to know,  -->
-
 ## Environment Setup / Expo Setup
 
 - To properly start we must make sure that when have all the following (applications) downloaded and up to date.
@@ -123,5 +121,38 @@ export default function App() {
 </View>
  )
 }
-
 ```
+
+## StyleSheet
+
+- The StyleSheet API in React Native lets you define styles in a centralized and reusable way, similar to CSS in web development but written in JavaScript. This helps keep code cleaner and easier to maintain. Instead of inline styles everywhere, you can store them in a single StyleSheet.create() call and reference them by name.
+
+```js
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Hello, React Native!</Text>
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f5f5f5",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+  },
+});
+```
+
+## Conclusion
+
+- React Native is a powerful framework that bridges the gap between JavaScript developers and native mobile app development. By learning its core components like View, Text, TextInput, ScrollView,Button, and StyleSheet, you can quickly create functional, cross-platform mobile apps without deep knowledge of native iOS or Android code. Once you’re comfortable with these building blocks, you can move on to more advanced features like navigation, state management, animations, and API integration. The more you experiment, the faster you’ll be able to turn your ideas into polished, real-world applications.
